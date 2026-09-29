@@ -1,0 +1,11 @@
+<%- include('../partials/header') %><div class="admin-layout"><%- include('../partials/sidebar') %><main class="admin-main">
+<div class="topbar"><div><span class="muted">Quản lý bạn đọc</span><h1><%= reader?'Sửa bạn đọc':'Thêm bạn đọc' %></h1></div><a class="btn light-dark" href="/admin/readers">Quay lại</a></div>
+<form class="panel form-grid" method="post" action="<%= reader?'/admin/readers/edit/'+reader.id:'/admin/readers/add' %>">
+<label>Mã bạn đọc<input name="reader_code" required value="<%= reader?.reader_code||'' %>"></label>
+<label>Họ và tên<input name="full_name" required value="<%= reader?.full_name||'' %>"></label>
+<label>Email<input type="email" name="email" value="<%= reader?.email||'' %>"></label>
+<label>Số điện thoại<input name="phone" value="<%= reader?.phone||'' %>"></label>
+<label>Địa chỉ<input name="address" value="<%= reader?.address||'' %>"></label>
+<label>Loại bạn đọc<select name="reader_type"><% ['Sinh viên','Giảng viên','Khác'].forEach(x=>{ %><option value="<%= x %>" <%= reader?.reader_type===x?'selected':'' %>><%= x %></option><% }) %></select></label>
+<% if(reader){ %><label>Trạng thái<select name="status"><option <%= reader.status==='Hoạt động'?'selected':'' %>>Hoạt động</option><option <%= reader.status!=='Hoạt động'?'selected':'' %>>Khóa</option></select></label><% } %>
+<div class="form-actions"><button class="btn primary">Lưu</button><a class="btn light-dark" href="/admin/readers">Hủy</a></div></form></main></div><%- include('../partials/footer') %>

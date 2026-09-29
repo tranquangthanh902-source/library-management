@@ -1,0 +1,7 @@
+<%- include('partials/header') %>
+<header class="public-bar"><a class="logo" href="/">Thư Viện Số</a><nav><a href="/">Trang chủ</a><a href="/login">Đăng nhập</a></nav></header>
+<main class="public-main"><div class="section-title"><span>#Search</span><h1>Tra cứu sách</h1></div>
+<form class="searchbar" method="get"><input name="q" value="<%= q %>" placeholder="Nhập tên sách, tác giả hoặc ISBN..."><button class="btn primary">Tìm kiếm</button></form>
+<div class="book-grid"><% books.forEach(book=>{ %><article class="book-card"><div class="book-cover"><i class="fa-solid fa-book"></i></div><div><h3><%= book.title %></h3><p><b>Tác giả:</b> <%= book.author %></p><p><b>ISBN:</b> <%= book.isbn %></p><span class="badge <%= book.available>0?'ok':'no' %>"><%= book.available>0?'Còn '+book.available+' cuốn':'Hết sách' %></span></div></article><% }) %></div>
+<% if(!books.length){ %><div class="empty">Không tìm thấy sách phù hợp.</div><% } %></main>
+<%- include('partials/footer') %>

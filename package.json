@@ -1,0 +1,19 @@
+{
+  "name": "library-management",
+  "version": "1.0.0",
+  "description": "Hệ thống quản lý thư viện - CNPM 24CT1",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "better-sqlite3": "^11.10.0",
+    "connect-flash": "^0.1.1",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "qrcode": "^1.5.4"
+  }
+}

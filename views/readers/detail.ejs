@@ -1,0 +1,5 @@
+<%- include('../partials/header') %><div class="admin-layout"><%- include('../partials/sidebar') %><main class="admin-main">
+<div class="topbar"><div><span class="muted">Bạn đọc</span><h1><%= reader.full_name %></h1></div></div>
+<div class="detail-grid"><div class="panel"><h2>Thông tin</h2><p><b>Mã:</b> <%= reader.reader_code %></p><p><b>Email:</b> <%= reader.email||'-' %></p><p><b>SĐT:</b> <%= reader.phone||'-' %></p><p><b>Địa chỉ:</b> <%= reader.address||'-' %></p><p><b>Loại:</b> <%= reader.reader_type %></p><p><b>Trạng thái:</b> <%= reader.status %></p></div>
+<div class="panel"><h2>Lịch sử mượn</h2><table><thead><tr><th>Sách</th><th>Mượn</th><th>Hạn</th><th>Trả</th><th>Trạng thái</th></tr></thead><tbody><% history.forEach(h=>{ %><tr><td><%= h.title %></td><td><%= h.borrow_date %></td><td><%= h.due_date %></td><td><%= h.return_date||'-' %></td><td><%= h.status %></td></tr><% }) %></tbody></table></div></div>
+</main></div><%- include('../partials/footer') %>

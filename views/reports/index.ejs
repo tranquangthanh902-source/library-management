@@ -1,0 +1,6 @@
+<%- include('../partials/header') %><div class="admin-layout"><%- include('../partials/sidebar') %><main class="admin-main">
+<div class="topbar"><div><span class="muted">Thống kê</span><h1>Báo cáo</h1></div><button class="btn dark" onclick="window.print()">In báo cáo</button></div>
+<div class="stat-grid"><div class="stat"><span>Tổng lượt mượn</span><b><%= stats.totalBorrows %></b></div><div class="stat"><span>Đã trả</span><b><%= stats.returned %></b></div><div class="stat"><span>Đang mượn</span><b><%= stats.active %></b></div><div class="stat danger"><span>Quá hạn</span><b><%= stats.overdue %></b></div></div>
+<div class="detail-grid"><div class="panel"><h2>Top sách</h2><table><thead><tr><th>Sách</th><th>Tác giả</th><th>Lượt</th></tr></thead><tbody><% topBooks.forEach(b=>{ %><tr><td><%= b.title %></td><td><%= b.author %></td><td><b><%= b.total %></b></td></tr><% }) %></tbody></table></div>
+<div class="panel"><h2>Top bạn đọc</h2><table><thead><tr><th>Mã</th><th>Họ tên</th><th>Lượt</th></tr></thead><tbody><% topReaders.forEach(r=>{ %><tr><td><%= r.reader_code %></td><td><%= r.full_name %></td><td><b><%= r.total %></b></td></tr><% }) %></tbody></table></div></div>
+</main></div><%- include('../partials/footer') %>

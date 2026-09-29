@@ -1,0 +1,35 @@
+<%- include('partials/header') %>
+<header class="landing-header">
+  <a class="logo" href="/">Thư Viện Số</a>
+  <nav><a href="/">Trang chủ</a><a href="#features">Tính năng</a><a href="/search">Tra cứu sách</a><a href="/login">Đăng nhập</a></nav>
+</header>
+<section class="hero">
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <span class="eyebrow">LIBRARY MANAGEMENT SYSTEM</span>
+      <h1>Hệ thống Quản lý Thư viện trực tuyến</h1>
+      <p>Quản lý sách, bạn đọc và hoạt động mượn trả trong một nền tảng đơn giản, nhanh chóng.</p>
+      <div class="actions"><a class="btn primary" href="/search">Tra cứu sách</a><a class="btn light" href="/login">Đăng nhập quản trị</a></div>
+    </div>
+  </div>
+</section>
+<section id="features" class="section features">
+  <div class="section-title"><span>#Features</span><h2>Các tính năng nổi bật</h2></div>
+  <div class="feature-grid">
+    <article class="feature-card"><i class="fa-solid fa-book-open"></i><h3>Quản lý sách</h3><p>Thêm, sửa, xóa và theo dõi số lượng sách.</p></article>
+    <article class="feature-card"><i class="fa-solid fa-arrows-rotate"></i><h3>Mượn - trả đơn giản</h3><p>Tạo phiếu mượn và cập nhật trạng thái trả sách.</p></article>
+    <article class="feature-card"><i class="fa-solid fa-magnifying-glass"></i><h3>Tra cứu online</h3><p>Tìm sách theo tên, tác giả hoặc ISBN mà không cần đăng nhập.</p></article>
+  </div>
+</section>
+<section class="stats-section">
+  <div><strong><%= stats.books %></strong><span>Tổng sách</span></div>
+  <div><strong><%= stats.readers %></strong><span>Tổng bạn đọc</span></div>
+  <div><strong><%= stats.borrows %></strong><span>Tổng lượt mượn</span></div>
+</section>
+<section class="about section">
+  <div><div class="about-box"><span>#Library</span><h2>Quản trị thư viện nhẹ nhàng như bán hàng</h2><p>Giao diện trực quan giúp người quản trị tập trung vào công việc thay vì thao tác phức tạp.</p><a class="btn dark" href="/login">Vào hệ thống</a></div></div>
+  <div class="about-art"><i class="fa-solid fa-building-columns"></i></div>
+</section>
+<section class="section testimonials"><div class="section-title"><span>#Testimonials</span><h2>Góc nhìn người dùng</h2></div>
+<div class="quote-grid"><div class="quote">“Dễ tìm sách và theo dõi tình trạng mượn.”<b>— Bạn đọc</b></div><div class="quote">“Các thao tác quản lý được gom vào một dashboard.”<b>— Quản trị viên</b></div><div class="quote">“Phù hợp cho môi trường thư viện nhỏ và trường học.”<b>— Sinh viên</b></div></div></section>
+<%- include('partials/footer') %>

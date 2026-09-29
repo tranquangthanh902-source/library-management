@@ -1,0 +1,5 @@
+<%- include('partials/header') %><div class="admin-layout"><%- include('partials/sidebar') %><main class="admin-main">
+<div class="topbar"><div><span class="muted">Tổng quan</span><h1>Dashboard</h1></div><div class="user"><i class="fa-solid fa-user-circle"></i><%= currentUser.full_name %></div></div>
+<div class="stat-grid"><div class="stat"><i class="fa-solid fa-book"></i><span>Tổng sách</span><b><%= stats.books %></b></div><div class="stat"><i class="fa-solid fa-users"></i><span>Bạn đọc</span><b><%= stats.readers %></b></div><div class="stat"><i class="fa-solid fa-book-open-reader"></i><span>Đang mượn</span><b><%= stats.borrowing %></b></div><div class="stat danger"><i class="fa-solid fa-triangle-exclamation"></i><span>Quá hạn</span><b><%= stats.overdue %></b></div></div>
+<div class="panel"><div class="panel-head"><h2>Sách được mượn nhiều</h2><a href="/admin/reports">Xem báo cáo</a></div><table><thead><tr><th>#</th><th>Tên sách</th><th>Lượt mượn</th></tr></thead><tbody><% topBooks.forEach((b,i)=>{ %><tr><td><%= i+1 %></td><td><%= b.title %></td><td><b><%= b.total %></b></td></tr><% }) %></tbody></table></div>
+</main></div><%- include('partials/footer') %>

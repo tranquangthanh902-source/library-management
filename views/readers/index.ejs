@@ -1,0 +1,6 @@
+<%- include('../partials/header') %><div class="admin-layout"><%- include('../partials/sidebar') %><main class="admin-main">
+<div class="topbar"><div><span class="muted">Quản lý</span><h1>Bạn đọc</h1></div><a class="btn primary" href="/admin/readers/add"><i class="fa-solid fa-plus"></i> Thêm bạn đọc</a></div>
+<form class="searchbar compact"><input name="q" value="<%= q %>" placeholder="Tìm mã, họ tên, số điện thoại"><button class="btn dark">Tìm</button></form>
+<div class="panel"><table><thead><tr><th>Mã</th><th>Họ tên</th><th>Loại</th><th>Email</th><th>SĐT</th><th>Trạng thái</th><th></th></tr></thead><tbody>
+<% readers.forEach(r=>{ %><tr><td><a class="link" href="/admin/readers/<%= r.id %>"><%= r.reader_code %></a></td><td><%= r.full_name %></td><td><%= r.reader_type %></td><td><%= r.email||'-' %></td><td><%= r.phone||'-' %></td><td><span class="badge <%= r.status==='Hoạt động'?'ok':'no' %>"><%= r.status %></span></td><td class="actions-cell"><a href="/admin/readers/edit/<%= r.id %>"><i class="fa-solid fa-pen"></i></a><form method="post" action="/admin/readers/delete/<%= r.id %>" onsubmit="return confirm('Xóa bạn đọc này?')"><button><i class="fa-solid fa-trash"></i></button></form></td></tr><% }) %>
+</tbody></table><% if(!readers.length){ %><div class="empty">Không tìm thấy bạn đọc.</div><% } %></div></main></div><%- include('../partials/footer') %>

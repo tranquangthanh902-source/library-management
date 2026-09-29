@@ -1,0 +1,5 @@
+<%- include('partials/header') %>
+<div class="auth-page"><div class="auth-card"><h1>Đăng ký</h1><p>Tạo tài khoản quản trị mới</p>
+<form method="post" action="/register"><label>Họ và tên<input name="full_name" required></label><label>Email<input type="email" name="email"></label><label>Tên đăng nhập<input name="username" required></label><label>Mật khẩu<input type="password" name="password" minlength="6" required></label><button class="btn primary full">Đăng ký</button></form>
+<a href="/login" class="back">Đã có tài khoản? Đăng nhập</a></div></div>
+<%- include('partials/footer') %>

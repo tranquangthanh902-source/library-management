@@ -1,0 +1,6 @@
+<%- include('../partials/header') %><div class="admin-layout"><%- include('../partials/sidebar') %><main class="admin-main">
+<div class="topbar"><div><span class="muted">Quản lý</span><h1>Sách</h1></div><a class="btn primary" href="/admin/books/add"><i class="fa-solid fa-plus"></i> Thêm sách</a></div>
+<form class="searchbar compact"><input name="q" value="<%= q %>" placeholder="Tìm tên, tác giả, ISBN"><button class="btn dark">Tìm</button></form>
+<div class="panel"><table><thead><tr><th>ISBN</th><th>Tên sách</th><th>Tác giả</th><th>Danh mục</th><th>Số lượng</th><th>Còn</th><th></th></tr></thead><tbody>
+<% books.forEach(b=>{ %><tr><td><%= b.isbn %></td><td><a class="link" href="/admin/books/<%= b.id %>"><%= b.title %></a></td><td><%= b.author %></td><td><%= b.category||'-' %></td><td><%= b.quantity %></td><td><span class="badge <%= b.available?'ok':'no' %>"><%= b.available %></span></td><td class="actions-cell"><a href="/admin/books/edit/<%= b.id %>"><i class="fa-solid fa-pen"></i></a><form method="post" action="/admin/books/delete/<%= b.id %>" onsubmit="return confirm('Xóa sách này?')"><button><i class="fa-solid fa-trash"></i></button></form></td></tr><% }) %>
+</tbody></table></div></main></div><%- include('../partials/footer') %>

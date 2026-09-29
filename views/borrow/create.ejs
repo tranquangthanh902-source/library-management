@@ -1,0 +1,9 @@
+<%- include('../partials/header') %><div class="admin-layout"><%- include('../partials/sidebar') %><main class="admin-main">
+<div class="topbar"><div><span class="muted">Mượn sách</span><h1>Tạo phiếu mượn</h1></div></div>
+<form class="panel form-grid" method="post" action="/admin/borrow/create">
+<label>Bạn đọc<select name="reader_id" required><option value="">-- Chọn bạn đọc --</option><% readers.forEach(r=>{ %><option value="<%= r.id %>"><%= r.reader_code %> - <%= r.full_name %></option><% }) %></select></label>
+<label>Sách<select name="book_id" required><option value="">-- Chọn sách --</option><% books.forEach(b=>{ %><option value="<%= b.id %>"><%= b.title %> — còn <%= b.available %></option><% }) %></select></label>
+<label>Ngày hạn trả<input type="date" name="due_date" required value="<%= new Date(Date.now()+14*86400000).toISOString().slice(0,10) %>"></label>
+<label>Ghi chú<textarea name="notes"></textarea></label>
+<div class="form-actions"><button class="btn primary">Xác nhận mượn</button><a class="btn light-dark" href="/admin/borrow">Hủy</a></div>
+</form></main></div><%- include('../partials/footer') %>
